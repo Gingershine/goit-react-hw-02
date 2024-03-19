@@ -44,7 +44,7 @@ function App() {
   }
   
   const totalFeedback = values.good + values.neutral + values.bad;
-
+  const rate = Math.round(((values.good + values.neutral) / totalFeedback) * 100);
   
 
   return (
@@ -56,6 +56,7 @@ function App() {
         totalFeedback={totalFeedback} />
       {totalFeedback > 0 ? 
         < Feedback values={values}
+          rate = {rate}
           totalFeedback={totalFeedback} /> :
         <Notification />
       }
